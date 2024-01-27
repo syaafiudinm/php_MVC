@@ -17,7 +17,7 @@
             <ul class="list-group">
                 <?php foreach( $data['mhs'] as $mhs ): ?>
                     <li class="list-group-item"><?= $mhs['Nama']; ?>
-                        <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge bg-danger float-end text-decoration-none ms-2 tombol-hapus">Hapus</a>
+                        <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge bg-danger float-end text-decoration-none ms-2 tombol-hapus" onclick="return confirm('anda yakin ingin menghapus data?');">Hapus</a>
                         <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge bg-primary float-end text-decoration-none ms-2">details</a>
                     </li>
                 <?php endforeach; ?>
