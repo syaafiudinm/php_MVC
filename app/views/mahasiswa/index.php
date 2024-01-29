@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-                <button type="button" class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#formModal">
+                <button type="button" class="btn btn-primary my-4 btnTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
                 Tambah Data Mahasiswa
                 </button>
                 <h3>Daftar Mahasiswa</h3>
@@ -18,7 +18,8 @@
                 <?php foreach( $data['mhs'] as $mhs ): ?>
                     <li class="list-group-item"><?= $mhs['Nama']; ?>
                         <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge bg-danger float-end text-decoration-none ms-2 tombol-hapus" onclick="return confirm('anda yakin ingin menghapus data?');">Hapus</a>
-                        <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge bg-primary float-end text-decoration-none ms-2">details</a>
+                        <a href="<?= BASEURL ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="badge bg-success float-end text-decoration-none ms-2 modalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>" >Ubah</a>
+                        <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge bg-primary float-end text-decoration-none ms-2">Details</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -37,21 +38,22 @@
       </div>
       <div class="modal-body"> 
         <form action="<?= BASEURL ?>/mahasiswa/tambah" method="post">
+        <input type="hidden" name="id" id="id">
             <div class="mb-3">
                 <label for="Nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="Nama" name="Nama">
+                <input type="text" class="form-control"  autocomplete="off" id="Nama" name="Nama">
             </div>
             <div class="mb-3">
                 <label for="NIM" class="form-label">NIM</label>
-                <input type="text" class="form-control" id="NIM" name="NIM">
+                <input type="text" class="form-control" autocomplete="off" id="NIM" name="NIM">
             </div>
             <div class="mb-3">
                 <label for="Prodi" class="form-label">Prodi</label>
-                <input type="text" class="form-control" id="Prodi" name="Prodi">
+                <input type="text" class="form-control" autocomplete="off" id="Prodi" name="Prodi">
             </div>
             <div class="mb-3">
                 <label for="Email" class="form-label">Email</label>
-                <input type="text" class="form-control" id="Email" name="Email">
+                <input type="text" class="form-control" autocomplete="off" id="Email" name="Email">
             </div>
       </div>
       <div class="modal-footer">
