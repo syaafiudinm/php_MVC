@@ -1,20 +1,35 @@
 <div class="container mt-5">
 
-    <div class="row">
-        <div class="col-6">
-            
-
             <div class="row">
                 <div class="col-lg-6">
                     <?php Flasher::flash(); ?>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button type="button" class="btn btn-primary mb-3 btnTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
+                    Tambah Data Mahasiswa
+                    </button>
+                </div>
+            </div>
 
-                <button type="button" class="btn btn-primary my-4 btnTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
-                Tambah Data Mahasiswa
-                </button>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="cari nama mahasiswa.." name="keyword" id="keyword" autocomplete="off">
+                            <button class="btn btn-primary" type="submit" id="tombolCari">cari</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+               
+            <div class="row">
+                <div class="col-6">
+            
+
                 <h3>Daftar Mahasiswa</h3>
-            <ul class="list-group">
+                <ul class="list-group">
                 <?php foreach( $data['mhs'] as $mhs ): ?>
                     <li class="list-group-item"><?= $mhs['Nama']; ?>
                         <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge bg-danger float-end text-decoration-none ms-2 tombol-hapus" onclick="return confirm('anda yakin ingin menghapus data?');">Hapus</a>

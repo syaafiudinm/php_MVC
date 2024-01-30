@@ -78,4 +78,16 @@ class Mahasiswa_model{
 
     }
 
+    public function cariDatamhs(){
+
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM mahasiswa WHERE Nama LIKE :keyword";
+
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+
+        return $this->db->resultSet();
+
+    }
+
 }
